@@ -1,4 +1,3 @@
-/*onko a pienempi kuin b?*/
 package kotitehtävä1;
 
 public class KT1_B {

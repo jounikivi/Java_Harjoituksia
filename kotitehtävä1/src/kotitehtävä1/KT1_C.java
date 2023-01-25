@@ -1,4 +1,3 @@
-/*0<a<15*/
 package kotitehtävä1;
 
 import java.util.Scanner;
