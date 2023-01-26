@@ -10,10 +10,10 @@ public class KT1_D {
 		System.out.print("Anna toinen luku: ");
 		int b = s.nextInt();
 		if (a > 0 && a < 15 && b > 0 && b < 14) {
-			System.out.println("Mollemmat luvut eivät ole välillä 0 ja15");
+			System.out.println("Mollemmat luvut eivät ole välillä 0 ja 15");
 		}
 		else {
-			System.out.println("Eivät ole välillä 0 ja 15");
+			System.out.println("Eivät ole välillä 0 ja 15 ");
 		}
 		
 	}
