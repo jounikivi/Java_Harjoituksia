@@ -7,30 +7,30 @@ public class KT9 {
 	        Scanner scanner = new Scanner(System.in);
 
 	        System.out.print("Anna vuosiluku: ");
-	        int year = scanner.nextInt();
+	        int vuosi = scanner.nextInt();
 	        System.out.print("Anna kuukausi (1-12): ");
-	        int month = scanner.nextInt();
+	        int kk = scanner.nextInt();
 
-	        boolean isLeap = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
-	        int daysInMonth;
-	        if (month == 2) {
-	            if (isLeap) {
-	                daysInMonth = 29;
+	        boolean boo = (vuosi % 4 == 0 && vuosi % 100 != 0) || vuosi % 400 == 0;
+	        int pv;
+	        if (kk == 2) {
+	            if (boo) {
+	                pv = 29;
 	            } else {
-	                daysInMonth = 28;
+	                pv = 28;
 	            }
-	        } else if (month == 4 || month == 6 || month == 9 || month == 11) {
-	            daysInMonth = 30;
+	        } else if (kk == 4 || kk == 6 || kk == 9 || kk == 11) {
+	            pv = 30;
 	        } else {
-	            daysInMonth = 31;
+	            pv = 31;
 	        }
 	        
-	        if (isLeap) {
-	            System.out.println(year + " on karkausvuosi.");
+	        if (boo) {
+	            System.out.println(vuosi + " on karkausvuosi.");
 	        } else {
-	            System.out.println(year + " ei ole karkausvuosi.");
+	            System.out.println(vuosi + " ei ole karkausvuosi.");
 	        }
-	        System.out.println("Kuukaudessa on " + daysInMonth + " p‰iv‰‰.");
+	        System.out.println("Kuukaudessa on " + pv + " p‰iv‰‰.");
 	    }
 	}
 
