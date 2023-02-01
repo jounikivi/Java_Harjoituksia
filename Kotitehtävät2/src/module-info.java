@@ -5,5 +5,5 @@
  * @author jouni
  *
  */
-module Kotiteht√§v√§t2 {
+module Kotiteht‰v‰t2 {
 }
