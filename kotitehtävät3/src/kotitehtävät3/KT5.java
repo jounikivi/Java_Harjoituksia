@@ -11,7 +11,7 @@ public class KT5 {
 		int tietokoneenValinta;
 
 		System.out.println("Tervetuloa pelaamaan kivi-paperi-sakset-peliä!");
-		System.out.println("Valitse kivi, paperi tai sakset (kirjoita sana):");
+		System.out.println("Valitse kivi, paperi tai sakset (k/p/s):");
 		pelaajanValinta = lukija.nextLine();
 
 		// Arvotaan tietokoneen valinta

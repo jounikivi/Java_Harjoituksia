@@ -60,4 +60,9 @@ public class KT8 {
 		ajastin.tulosta();
 		System.out.println("Aika loppui!");
 	}
+
+	public void vahennaSekunti() {
+		// TODO Auto-generated method stub
+		
+	}
 }
