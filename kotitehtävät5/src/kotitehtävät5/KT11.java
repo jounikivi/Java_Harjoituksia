@@ -14,5 +14,10 @@ public class KT11 {
 	        System.out.println("Ei samoja merkkejä samoissa indekseissä.");
 	    }
 	}
+	public static void main(String[] args) {
+	    String jono1 = "kissa";
+	    String jono2 = "kassi";
+	    onSamojaIndekseissa(jono1, jono2);
+	}
 
 }
