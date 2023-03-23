@@ -3,7 +3,7 @@ package kotitehtävät6;
 import java.util.Scanner;
 
 public class KT8 {
-	public static void kysyKokonaisluku() {
+	public static void main(String[] args) {
 		Scanner lukija = new Scanner(System.in);
 	    int luku = 0;
 	    while (true) {
@@ -23,6 +23,5 @@ public class KT8 {
 	    }
 	    System.out.println("Annoit kokonaisluvun: " + luku);
 	}
-
-}
+	}
 
