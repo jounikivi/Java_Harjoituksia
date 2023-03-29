@@ -1,3 +1,4 @@
 aku ankka,50,aku.ankka@linna.com
 mikki hiiri,60,mikki@linna.com
 hessu hopo,40,hessuhopo@linna.com
+roope ankka,80,roopa@linna.com
