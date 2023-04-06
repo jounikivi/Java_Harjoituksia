@@ -1,7 +1,5 @@
 package kotitehtävät3;
-
 import java.util.Scanner;
-
 public class Ajastin {
     private int minuutit;
     private int sekunnit;
@@ -44,10 +42,21 @@ public class Ajastin {
 
     public void lisaaMinuutti() {
         setAika(this.minuutit + 1, this.sekunnit);
+        tulosta();
     }
 
     public void vahennaSekunti() {
-        setAika(this.minuutit, this.sekunnit - 1);
+        while (true) {
+            if (this.sekunnit > 0) {
+                setAika(this.minuutit, this.sekunnit - 1);
+                tulosta();
+            } else if (this.minuutit > 0) {
+                setAika(this.minuutit - 1, 59);
+                tulosta();
+            } else {
+                break;
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -60,10 +69,6 @@ public class Ajastin {
 
         ajastin.tulosta();
         ajastin.lisaaMinuutti();
-        ajastin.tulosta();
         ajastin.vahennaSekunti();
-        ajastin.tulosta();
     }
 }
-
-
