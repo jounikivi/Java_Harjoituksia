@@ -1,42 +1,25 @@
 package kotitehtävät3;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class KT4 {
-	public static void main(String[] args) {
-		Scanner lukija = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner lukija = new Scanner(System.in);
 
-		int luku1, luku2, luku3, luku4;
+        int[] luvut = new int[4];
+        for (int i = 0; i < luvut.length; i++) {
+            System.out.print("Anna luku: ");
+            luvut[i] = lukija.nextInt();
+        }
 
-		System.out.print("Anna neljä lukua: ");
-		luku1 = lukija.nextInt();
-		luku2 = lukija.nextInt();
-		luku3 = lukija.nextInt();
-		luku4 = lukija.nextInt();
+        // Etsitään taulukon suurin ja pienin luku valmiiden max() ja min() -metodien avulla
+        int suurin = Arrays.stream(luvut).max().getAsInt();
+        int pienin = Arrays.stream(luvut).min().getAsInt();
 
-		int suurin = luku1;
-		if (luku2 > suurin) {
-			suurin = luku2;
-		}
-		if (luku3 > suurin) {
-			suurin = luku3;
-		}
-		if (luku4 > suurin) {
-			suurin = luku4;
-		}
-
-		int pienin = luku1;
-		if (luku2 < pienin) {
-			pienin = luku2;
-		}
-		if (luku3 < pienin) {
-			pienin = luku3;
-		}
-		if (luku4 < pienin) {
-			pienin = luku4;
-		}
-
-		System.out.println("Suurin luku on " + suurin);
-		System.out.println("Pienin luku on " + pienin);
-	}
+        // Tulostetaan suurin ja pienin luku
+        System.out.println("Suurin luku on " + suurin);
+        System.out.println("Pienin luku on " + pienin);
+    }
 }
+
