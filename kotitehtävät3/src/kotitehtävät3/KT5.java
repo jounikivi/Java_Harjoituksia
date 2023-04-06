@@ -4,6 +4,31 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class KT5 {
+    public static void main(String[] args) {
+        Scanner lukija = new Scanner(System.in);
+        Random arpuri = new Random();
+        
+        String[] esineet = {"kivi", "paperi", "sakset"};
+        int pelaajanValinta = 0, tietokoneenValinta = arpuri.nextInt(3);
+
+        System.out.println("Tervetuloa pelaamaan kivi-paperi-sakset-peliä!");
+        System.out.println("Valitse kivi (0), paperi (1) tai sakset (2):");
+        pelaajanValinta = lukija.nextInt();
+
+        System.out.println("Tietokone valitsi " + esineet[tietokoneenValinta] + ".");
+        if (pelaajanValinta == tietokoneenValinta) {
+            System.out.println("Tasapeli!");
+        } else if ((pelaajanValinta == 0 && tietokoneenValinta == 2)
+                || (pelaajanValinta == 1 && tietokoneenValinta == 0)
+                || (pelaajanValinta == 2 && tietokoneenValinta == 1)) {
+            System.out.println("Voitit!");
+        } else {
+            System.out.println("Tietokone voitti!");
+        }
+    }
+}
+
+/*public class KT5 {
 	public static void main(String[] args) {
 		Scanner lukija = new Scanner(System.in);
 		Random arpuri = new Random();
@@ -61,3 +86,4 @@ public class KT5 {
 		}
 	}
 }
+*/

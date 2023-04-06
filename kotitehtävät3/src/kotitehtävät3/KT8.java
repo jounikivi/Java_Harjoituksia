@@ -6,30 +6,35 @@ public class KT8 {
 	private int minuutit;
 	private int sekunnit;
 
+	// Konstruktori ajastimen luomiseen
 	public KT8(int minuutit, int sekunnit) {
 		this.minuutit = minuutit;
 		this.sekunnit = sekunnit;
 	}
 
+	// Palauttaa minuutit
 	public int getMinuutit() {
 		return minuutit;
 	}
 
+	// Palauttaa sekunnit
 	public int getSekunnit() {
 		return sekunnit;
 	}
 
+	// Tulostaa ajan muodossa "3:29"
 	public void tulosta() {
 		System.out.printf("%d:%02d\n", minuutit, sekunnit);
 	}
 
-	public void laskeAikaa(int sekuntia) {
-		if (sekuntia < 0) {
-			sekuntia = 0;
-		}
+	// Vähentää aikaa annetun sekuntimäärän verran ja tarkistaa rajoitukset
+	public void vahennaAikaa(int sekuntia) {
+		sekuntia = Math.max(0, sekuntia); // Varmistetaan, että sekuntia ei ole negatiivinen
 		int uudetSekunnit = sekunnit + sekuntia;
 		int ylimenevatMinuutit = uudetSekunnit / 60;
 		int uudetMinuutit = minuutit + ylimenevatMinuutit;
+
+		// Tarkistetaan, onko aika yli 5 minuuttia
 		if (uudetMinuutit > 5) {
 			uudetMinuutit = 5;
 			uudetSekunnit = 0;
@@ -46,23 +51,20 @@ public class KT8 {
 		int minuutit = lukija.nextInt();
 		System.out.print("Anna sekunnit: ");
 		int sekunnit = lukija.nextInt();
+
 		KT8 ajastin = new KT8(minuutit, sekunnit);
 
+		// Päivitetään aikaa joka sekunti kunnes aika loppuu
 		while (ajastin.getMinuutit() > 0 || ajastin.getSekunnit() > 0) {
 			ajastin.tulosta();
-			ajastin.laskeAikaa(1);
+			ajastin.vahennaAikaa(1);
 			try {
-				Thread.sleep(1);
+				Thread.sleep(1000); // Pysäytetään ohjelma sekunniksi
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
 		ajastin.tulosta();
 		System.out.println("Aika loppui!");
-	}
-
-	public void vahennaSekunti() {
-		// TODO Auto-generated method stub
-		
 	}
 }

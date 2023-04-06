@@ -5,17 +5,18 @@ import java.util.Scanner;
 
 public class KT7 {
 	public static void main(String[] args) {
-		Scanner lukija = new Scanner(System.in);
-		Random arpoja = new Random();
-		int pelaajanPisteet = 0;
-		int tietokoneenPisteet = 0;
+		Scanner lukija = new Scanner(System.in); // Luo Scanner-olion käyttäjän syötteiden lukemiseen
+		Random arpoja = new Random(); // Luo Random-olion satunnaisten numeroiden arpomiseen
+		int pelaajanPisteet = 0; // Alusta pelaajan pisteet nollaksi
+		int tietokoneenPisteet = 0; // Alusta tietokoneen pisteet nollaksi
 
+		// Toista 10 kierrosta
 		for (int i = 1; i <= 10; i++) {
 			System.out.println("Kierros " + i);
 			System.out.print("Valitse kivi (k), paperi (p) tai sakset (s): ");
-			String pelaajanValinta = lukija.nextLine();
+			String pelaajanValinta = lukija.nextLine(); // Lue käyttäjän valinta syötteestä
 
-			int tietokoneenValinta = arpoja.nextInt(3); // 0 = kivi, 1 = paperi, 2 = sakset
+			int tietokoneenValinta = arpoja.nextInt(3); // Arvo satunnainen numero 0, 1 tai 2
 
 			// Tulosta tietokoneen valinta
 			switch (tietokoneenValinta) {
