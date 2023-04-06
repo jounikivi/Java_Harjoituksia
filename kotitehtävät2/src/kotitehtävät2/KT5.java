@@ -3,30 +3,37 @@ package kotitehtävät2;
 import java.util.Scanner;
 
 public class KT5 {
-	public static void main(String[] args) {
-		Scanner lukija = new Scanner(System.in);
-	    int alaraja, yläraja, num, sum;
+    public static void main(String[] args) {
+        Scanner lukija = new Scanner(System.in);
+        int alaraja, yläraja, num, sum = 0;
 
-	    System.out.print("Anna alaraja: ");
-	    alaraja = lukija.nextInt();
-	    System.out.print("Anna yläraja: ");
-	    yläraja = lukija.nextInt();
+        // Kysytään käyttäjältä alaraja ja yläraja lukualueelle
+        System.out.print("Anna alaraja: ");
+        alaraja = lukija.nextInt();
+        System.out.print("Anna yläraja: ");
+        yläraja = lukija.nextInt();
 
-	    while (true) {
-	      System.out.print("Anna luku: ");
-	      num = lukija.nextInt();
-	      if (num >= alaraja && num <= yläraja) {
-	        break;
-	      }
-	    }
+        // Pyydetään käyttäjältä luku, kunnes se on lukualueen sisällä
+        do {
+            System.out.print("Anna luku (" + alaraja + ".." + yläraja + "): ");
+            num = lukija.nextInt();
+        } while (num < alaraja || num > yläraja);
 
-	    if (num - alaraja <= yläraja - num) {
-	      sum = 0;
-	      for (int i = 0; i < 3; i++) {
-	        System.out.print("Anna negatiivinen luku: ");
-	        sum += lukija.nextInt();
-	      }
-	      System.out.println("Summa: " + sum);
-	    }
-	  }
-	}
+        // Jos käyttäjän antama luku on lähempänä alarajaa, pyydetään käyttäjältä kolme negatiivista 
+        // lukua
+        // ja lasketaan niiden summa
+        if (num - alaraja <= yläraja - num) {
+            for (int i = 0; i < 3; i++) {
+                int luku;
+                do {
+                    System.out.print("Anna negatiivinen luku: ");
+                    luku = lukija.nextInt();
+                } while (luku >= 0);
+
+                sum += luku;
+            }
+            System.out.println("Negatiivisten lukujen summa: " + sum);
+        }
+    }
+}
+
