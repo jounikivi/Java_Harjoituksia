@@ -5,35 +5,47 @@ import java.io.*;
 public class KT2 {
 
     public static void main(String[] args) {
+        String tiedostonNimi = "tiedosto.txt";
+        String tulostusNimi = "tulostus.txt";
         String etunimi = "Jouni";
-        int kokonaisluku = 5;
-        
+        int luku = 5;
+
+        // tiedoston kirjoittaminen
         try {
-            FileWriter tiedosto = new FileWriter("tiedosto.txt");
-            BufferedWriter out = new BufferedWriter(tiedosto);
-            for (int i = 0; i < 3; i++) {
-                out.write(etunimi + " " + kokonaisluku);
-                out.newLine();
-            }
-            out.close();
+            FileWriter tiedostoKirjoittaja = new FileWriter(tiedostonNimi);
+            tiedostoKirjoittaja.write(etunimi + " " + luku + "\n");
+            tiedostoKirjoittaja.write(etunimi + " " + luku + "\n");
+            tiedostoKirjoittaja.write(etunimi + " " + luku + "\n");
+            tiedostoKirjoittaja.close();
+            System.out.println("Tiedoston kirjoitus onnistui.");
         } catch (IOException e) {
-            System.out.println("Virhe tiedoston kirjoittamisessa: " + e.getMessage());
+            System.out.println("Tiedoston kirjoittaminen epäonnistui: " + e.getMessage());
         }
-        
+
+        // tiedoston lukeminen ja tulostaminen
         try {
-            FileWriter tiedosto = new FileWriter("tulos.txt");
-            BufferedWriter out = new BufferedWriter(tiedosto);
-            FileReader tiedosto2 = new FileReader("tiedosto.txt");
-            BufferedReader in = new BufferedReader(tiedosto2);
+            FileReader tiedostoLukija = new FileReader(tiedostonNimi);
+            BufferedReader puskuroituLukija = new BufferedReader(tiedostoLukija);
+            
+            FileWriter tulostusKirjoittaja = new FileWriter(tulostusNimi);
+            
             String rivi;
-            while ((rivi = in.readLine()) != null) {
-                out.write(rivi);
-                out.newLine();
+            while ((rivi = puskuroituLukija.readLine()) != null) {
+                // pilkotaan rivi välilyönnin kohdalta ja tallennetaan tiedot taulukkoon
+                String[] tiedot = rivi.split(" ");
+                // otetaan etunimi taulukosta
+                String etunimi2 = tiedot[0];
+                // tulostetaan etunimi ja luku samalle riville välilyönnillä erotettuna
+                tulostusKirjoittaja.write(etunimi2 + " " + luku + "\n");
             }
-            in.close();
-            out.close();
+            
+            tulostusKirjoittaja.close();
+            puskuroituLukija.close();
+            tiedostoLukija.close();
+            System.out.println("Tiedoston lukeminen ja tulostaminen onnistui.");
         } catch (IOException e) {
-            System.out.println("Virhe tiedoston lukemisessa/kirjoittamisessa: " + e.getMessage());
+            System.out.println("Tiedoston käsittely epäonnistui: " + e.getMessage());
         }
     }
 }
+
