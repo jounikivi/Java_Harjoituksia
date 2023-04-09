@@ -1,0 +1,10 @@
+Suomi,Helsinki
+Ruotsi,Tukholma
+Norja,Oslo
+Tanska,Kööpenhamina
+Venäjä,Moskova
+Yhdysvallat,Washington, D.C.
+Iso-Britannia,Lontoo
+Ranska,Pariisi
+Saksa,Berliini
+Italia,Rooma
