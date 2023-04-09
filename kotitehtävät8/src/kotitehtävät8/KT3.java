@@ -1,39 +1,58 @@
 package kotitehtävät8;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.*;
 
 public class KT3 {
+
     public static void main(String[] args) {
-        // Luetaan uutisteksti tiedostosta
-        File file = new File("uutisteksti.txt");
-        String text = "";
+        String tiedostonNimi = "tiedosto.txt";
+        String tulostusNimi = "tulostus.txt";
+        
+        // pyydetään käyttäjältä merkkijono ja kokonaisluku
+        java.util.Scanner lukija = new java.util.Scanner(System.in);
+        System.out.print("Anna merkkijono: ");
+        String merkkijono = lukija.nextLine();
+        System.out.print("Anna kokonaisluku: ");
+        int luku = lukija.nextInt();
+        
+        // tiedoston kirjoittaminen
         try {
-            Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine()) {
-                text += scanner.nextLine();
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            FileWriter tiedostoKirjoittaja = new FileWriter(tiedostonNimi);
+            tiedostoKirjoittaja.write(merkkijono + " " + luku + "\n");
+            tiedostoKirjoittaja.write(merkkijono + " " + luku + "\n");
+            tiedostoKirjoittaja.write(merkkijono + " " + luku + "\n");
+            tiedostoKirjoittaja.close();
+            System.out.println("Tiedoston kirjoitus onnistui.");
+        } catch (IOException e) {
+            System.out.println("Tiedoston kirjoittaminen epäonnistui: " + e.getMessage());
         }
 
-        // Etsitään kaikki sanat, joiden pituus on kymmenen tai enemmän
-        String[] words = text.split(" ");
-        ArrayList<String> longWords = new ArrayList<>();
-        for (String word : words) {
-            if (word.length() >= 10) {
-                longWords.add(word);
+        // tiedoston lukeminen ja tulostaminen
+        try {
+            FileReader tiedostoLukija = new FileReader(tiedostonNimi);
+            BufferedReader puskuroituLukija = new BufferedReader(tiedostoLukija);
+            
+            FileWriter tulostusKirjoittaja = new FileWriter(tulostusNimi);
+            
+            String rivi;
+            while ((rivi = puskuroituLukija.readLine()) != null) {
+                // pilkotaan rivi välilyönnin kohdalta ja tallennetaan tiedot taulukkoon
+                String[] tiedot = rivi.split(" ");
+                // otetaan merkkijono taulukosta
+                String merkkijono2 = tiedot[0];
+                // tulostetaan merkkijono ja luku samalle riville välilyönnillä erotettuna
+                tulostusKirjoittaja.write(merkkijono2 + " " + luku + "\n");
             }
-        }
-
-        // Tulostetaan pitkät sanat näytölle
-        System.out.println("Pitkät sanat:");
-        for (String longWord : longWords) {
-            System.out.println(longWord);
+            
+            tulostusKirjoittaja.close();
+            puskuroituLukija.close();
+            tiedostoLukija.close();
+            System.out.println("Tiedoston lukeminen ja tulostaminen onnistui.");
+        } catch (IOException e) {
+            System.out.println("Tiedoston käsittely epäonnistui: " + e.getMessage());
         }
     }
 }
+
 
 
