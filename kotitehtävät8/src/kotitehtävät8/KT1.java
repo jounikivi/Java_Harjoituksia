@@ -6,7 +6,7 @@ public class KT1 {
 
     public static void main(String[] args) {
         String tiedostonNimi = "tiedosto.txt";
-        String etunimi = "Matti";
+        String etunimi = "Jouni";
         int luku = 3;
 
         try {
