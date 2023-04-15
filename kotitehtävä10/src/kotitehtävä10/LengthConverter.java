@@ -1,4 +1,4 @@
-package kotitehtävä10;
+package KT10;
 
 /**
  * Muuntaa pituuden jalkoiksi ja tuumiksi ja takaisin päin.
