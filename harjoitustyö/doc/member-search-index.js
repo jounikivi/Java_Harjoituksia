@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"harjoitustyö","c":"MolkkyPistelaskuri","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"harjoitustyö","c":"MolkkyPistelaskuri","l":"MolkkyPistelaskuri()","u":"%3Cinit%3E()"}];updateSearchResults();
