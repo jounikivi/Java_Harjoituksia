@@ -1,20 +1,23 @@
 package kotitehtävät5;
 
 public class KT10 {
-	public static void tulostaVokaalialkuiset(String mjono) {
-	    String[] sanat = mjono.split(" ");
-	    for (String sana : sanat) {
-	        char ensimmäinenKirjain = sana.toLowerCase().charAt(0);
-	        if (ensimmäinenKirjain == 'a' || ensimmäinenKirjain == 'e' || 
-	            ensimmäinenKirjain == 'i' || ensimmäinenKirjain == 'o' || 
-	            ensimmäinenKirjain == 'u' || ensimmäinenKirjain == 'y') {
-	            System.out.println(sana);
+	public static void voidonsamojaindekseissa(String jono1, String jono2) {
+	    if (jono1.length() != jono2.length()) {
+	        System.out.println("Merkkijonojen pituudet eivät ole samat.");
+	        return;
+	    }
+
+	    boolean foundMatch = false;
+	    for (int i = 0; i < jono1.length(); i++) {
+	        if (jono1.charAt(i) == jono2.charAt(i)) {
+	            System.out.printf("%c:%d ", jono1.charAt(i), i);
+	            foundMatch = true;
 	        }
 	    }
-	}
-	public static void main(String[] args) {
-	    String mjono = "Aamu alkoi aurinkoisena, mutta iltaan mennessä sää viileni.";
-	    tulostaVokaalialkuiset(mjono);
+
+	    if (!foundMatch) {
+	        System.out.println("Ei löytynyt yhtään samaa merkkiä samoissa indekseissä.");
+	    }
 	}
 
 }

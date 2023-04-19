@@ -3,29 +3,43 @@ package kotitehtävät5;
 import java.util.Scanner;
 
 public class KT6 {
-	public static boolean onAnagrammit(String jono1, String jono2) {
-		   if(jono1.length() != jono2.length()) {
-		      return false;
-		   }
-		   int[] kirjaimet1 = new int[256];
-		   int[] kirjaimet2 = new int[256];
-		   for(int i = 0; i < jono1.length(); i++) {
-		      kirjaimet1[(int)jono1.charAt(i)]++;
-		      kirjaimet2[(int)jono2.charAt(i)]++;
-		   }
-		   for(int i = 0; i < 256; i++) {
-		      if(kirjaimet1[i] != kirjaimet2[i]) {
-		         return false;
-		      }
-		   }
-		   return true;
-		}
-	public static void main(String[] args) {
+    // Metodi tarkistaa, ovatko annetut merkkijonot anagrammeja toisilleen
+    public static boolean onAnagrammit(String jono1, String jono2) {
+        // Jos merkkijonot eivät ole samanpituiset, ne eivät voi olla anagrammeja
+        if(jono1.length() != jono2.length()) {
+            return false;
+        }
+
+        // Taulukot, jotka sisältävät merkkien esiintymismäärän ASCII-koodin mukaisessa indeksissä
+        int[] kirjaimet1 = new int[256];
+        int[] kirjaimet2 = new int[256];
+
+        // Käydään molemmat merkkijonot läpi ja lisätään kirjainten esiintymiskerrat taulukoihin
+        for(int i = 0; i < jono1.length(); i++) {
+            kirjaimet1[(int)jono1.charAt(i)]++;
+            kirjaimet2[(int)jono2.charAt(i)]++;
+        }
+
+        // Käydään taulukot läpi ja tarkistetaan, ovatko kirjainten esiintymiskerrat samat
+        for(int i = 0; i < 256; i++) {
+            if(kirjaimet1[i] != kirjaimet2[i]) {
+                return false;
+            }
+        }
+
+        // Jos kaikki kirjainten esiintymiskerrat ovat samat, merkkijonot ovat anagrammeja
+        return true;
+    }
+
+    public static void main(String[] args) {
         Scanner lukija = new Scanner(System.in);
+
         System.out.print("Syötä ensimmäinen merkkijono: ");
         String jono1 = lukija.nextLine();
+
         System.out.print("Syötä toinen merkkijono: ");
         String jono2 = lukija.nextLine();
+
         if (onAnagrammit(jono1, jono2)) {
             System.out.println(jono1 + " ja " + jono2 + " ovat anagrammeja.");
         } else {
@@ -33,4 +47,3 @@ public class KT6 {
         }
     }
 }
-

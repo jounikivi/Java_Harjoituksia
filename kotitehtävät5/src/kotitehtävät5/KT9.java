@@ -1,26 +1,29 @@
 package kotitehtävät5;
 
-import java.util.Scanner;
-
 public class KT9 {
-	public static String kapitalisoi(String mjono) {
-	    String[] sanat = mjono.split(" ");
-	    StringBuilder sb = new StringBuilder();
-	    for (String sana : sanat) {
-	        if (sana.length() > 0) {
-	            String ensimmäinenKirjain = sana.substring(0, 1);
-	            String loputKirjaimet = sana.substring(1);
-	            sb.append(ensimmäinenKirjain.toUpperCase() + loputKirjaimet + " ");
-	        }
-	    }
-	    return sb.toString().trim();
-	}
-	public static void main(String[] args) {
-	    Scanner lukija = new Scanner(System.in);
-	    System.out.print("Syötä merkkijono: ");
-	    String jono = lukija.nextLine();
-	    String kapitalisoituJono = kapitalisoi(jono);
-	    System.out.println("Merkkijono isolla alkukirjaimella: " + kapitalisoituJono);
-	}
-
+    // Metodi, joka tulostaa näytölle kaikki vokaalilla alkavat sanat
+    public static void tulostaVokaalialkuiset(String mjono) {
+        // Jakaa annetun merkkijonon sanoiksi välilyöntien perusteella
+        String[] sanat = mjono.split(" ");
+        // Käy läpi jokaisen sanan
+        for (String sana : sanat) {
+            // Ottaa sanan ensimmäisen kirjaimen pienellä kirjoitettuna
+            char ensimmäinenKirjain = sana.toLowerCase().charAt(0);
+            // Tarkistaa, onko ensimmäinen kirjain vokaali (a, e, i, o, u tai y)
+            if (ensimmäinenKirjain == 'a' || ensimmäinenKirjain == 'e' || 
+                ensimmäinenKirjain == 'i' || ensimmäinenKirjain == 'o' || 
+                ensimmäinenKirjain == 'u' || ensimmäinenKirjain == 'y') {
+                // Tulostaa sanan, jos se alkaa vokaalilla
+                System.out.println(sana);
+            }
+        }
+    }
+    
+    // Main-metodi, joka kutsuu tulostaVokaalialkuiset-metodia
+    public static void main(String[] args) {
+        // Testimerkkijono
+        String mjono = "Aamu alkoi aurinkoisena, mutta iltaan mennessä sää viileni.";
+        // Kutsuu tulostaVokaalialkuiset-metodia testimerkkijonolla
+        tulostaVokaalialkuiset(mjono);
+    }
 }
