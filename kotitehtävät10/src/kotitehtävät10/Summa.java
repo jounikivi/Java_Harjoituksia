@@ -1,4 +1,4 @@
-package kotitehtevät10;
+package kotitehtävät10;
 
 public class Summa {
     public static void main(String[] args) {
