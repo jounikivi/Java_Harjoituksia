@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"KT10","c":"Pituusmuunnin","l":"cmJalkatuumat(double)"},{"p":"KT10","c":"Pituusmuunnin","l":"jalkatuumatCm(double, double)","u":"jalkatuumatCm(double,double)"},{"p":"KT10","c":"Pituusmuunnin","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"KT10","c":"Pituusmuunnin","l":"Pituusmuunnin()","u":"%3Cinit%3E()"}];updateSearchResults();
